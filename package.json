@@ -1,6 +1,6 @@
 {
   "name": "journeyhub",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "description": "Controle pessoal de jornada para Windows e Microsoft SQL Server",
   "main": "dist/main/index.cjs",

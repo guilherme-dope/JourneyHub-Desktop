@@ -6,7 +6,7 @@
 
 **Sistema desktop para registro e análise da jornada de trabalho**
 
-Windows x64 · Versão 0.4.3 · Português e inglês
+Windows x64 · Versão 0.4.4 · Português e inglês
 
 [Baixar o instalador](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/latest) · [Instalação](#instalacao) · [Requisitos funcionais](#requisitos) · [Arquitetura](#arquitetura)
 
@@ -16,7 +16,7 @@ Windows x64 · Versão 0.4.3 · Português e inglês
 
 O JourneyHub é um aplicativo de uso pessoal para Windows. Sua origem está em uma dificuldade prática do controle por planilha: representar várias pausas no mesmo dia, corrigir um lançamento e ainda conseguir explicar como se chegou ao saldo de horas. O sistema registra cada entrada, pausa, retorno e saída e usa esses eventos tanto na consulta diária quanto no relatório Excel.
 
-O objetivo é permitir que a pessoa registre sua jornada mesmo sem internet, recupere o trabalho em andamento após uma interrupção e consulte as alterações feitas posteriormente. A versão 0.4.3 contempla o uso individual. Seus indicadores expressam tempo de trabalho segundo a referência configurada pelo usuário. Cálculo de remuneração e sincronização entre dispositivos estão fora desse escopo.
+O objetivo é permitir que a pessoa registre sua jornada mesmo sem internet, recupere o trabalho em andamento após uma interrupção e consulte as alterações feitas posteriormente. A versão 0.4.4 contempla o uso individual. Seus indicadores expressam tempo de trabalho segundo a referência configurada pelo usuário. Cálculo de remuneração e sincronização entre dispositivos estão fora desse escopo.
 
 <a id="instalacao"></a>
 ## 2. Instalação no Windows
@@ -28,7 +28,7 @@ O objetivo é permitir que a pessoa registre sua jornada mesmo sem internet, rec
 | Acesso ao download | Download público pelo GitHub Releases |
 | Ambiente de desenvolvimento | Node.js e ferramentas de compilação são necessários apenas para desenvolver a partir do código-fonte |
 
-1. Abra a [release 0.4.3](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/latest). Na seção **Assets**, baixe o instalador com extensão **.exe**. O arquivo **SHA256SUMS.txt** contém o resumo para conferência de integridade.
+1. Abra a [release 0.4.4](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/latest). Na seção **Assets**, baixe o instalador com extensão **.exe**. O arquivo **SHA256SUMS.txt** contém o resumo para conferência de integridade.
 2. Execute o instalador e conclua a instalação para seu usuário do Windows. O pacote desta versão está sem assinatura digital e o Windows pode exibir um aviso de editor desconhecido.
 3. Abra **JourneyHub** pelo menu Iniciar. Em uma instalação nova, o armazenamento local é preparado automaticamente.
 4. Em **Minha jornada**, clique em **Iniciar jornada**. Ao fazer uma pausa, informe o motivo. Use **Registrar retorno** quando voltar e **Encerrar jornada** ao terminar o trabalho.
@@ -91,7 +91,7 @@ flowchart LR
 
 ## 6. Atualização, backup e recuperação
 
-- **Atualizar o aplicativo.** Faça backup do banco ativo, encerre o JourneyHub pelo menu do ícone próximo ao relógio e execute o novo instalador na mesma pasta. Na versão 0.4.3, a atualização é manual.
+- **Atualizar o aplicativo.** Faça backup do banco ativo, encerre o JourneyHub pelo menu do ícone próximo ao relógio e execute o novo instalador na mesma pasta. Na versão 0.4.4, a atualização é manual.
 - **Proteger o histórico.** Para SQLite, use a função de backup nas configurações e guarde a cópia fora do computador. Restaurar recupera o estado da data da cópia. Para SQL Server, use o backup do próprio servidor e valide a restauração em um banco separado. A planilha Excel serve para consulta e análise.
 - **Retomar após uma interrupção.** Ao reabrir o aplicativo com o mesmo banco, confira a jornada em andamento. A última entrada ou pausa já gravada mantém seu horário. Registre o próximo evento conforme o que realmente aconteceu.
 - **Personalizar a referência em SQL Server.** O administrador pode habilitar o recurso com o [script da referência diária](sql/003-daily-reference.sql), após validar uma cópia de segurança. A instalação do aplicativo não executa essa migração. Sem ela, o histórico continua disponível com a referência padrão.
