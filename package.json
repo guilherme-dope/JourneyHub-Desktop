@@ -1,0 +1,95 @@
+{
+  "name": "journeyhub",
+  "version": "0.4.3",
+  "private": true,
+  "description": "Controle pessoal de jornada para Windows e Microsoft SQL Server",
+  "main": "dist/main/index.cjs",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "start": "electron .",
+    "test": "node scripts/build-backup-worker.mjs && vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "npm run build && node scripts/e2e.mjs",
+    "db:check": "tsx scripts/db.ts check",
+    "db:migrate": "tsx scripts/db.ts migrate",
+    "db:test": "node scripts/sql-test.mjs",
+    "rebuild:native": "electron-rebuild -f -w msnodesqlv8",
+    "package:win": "npm run build && electron-builder --win dir",
+    "installer:win": "npm run build && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.5.1",
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
+    "i18next": "^26.6.0",
+    "mssql": "12.7.11",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-i18next": "^17.1.9",
+    "zod": "^4.3.6"
+  },
+  "optionalDependencies": {
+    "msnodesqlv8": "^5.1.1"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "@playwright/test": "^1.64.1",
+    "@types/mssql": "^9.1.8",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "electron": "45.0.0",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  },
+  "build": {
+    "npmRebuild": false,
+    "appId": "local.journeyhub.desktop",
+    "productName": "JourneyHub",
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "win": {
+      "target": "dir",
+      "icon": "assets/icon.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true
+    }
+  }
+}
