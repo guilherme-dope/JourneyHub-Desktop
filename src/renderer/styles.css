@@ -21,3 +21,13 @@ select{font:inherit;background:#fff;border:1px solid #d7dfd2;border-radius:6px;p
 .export-select option { background: #fff; color: var(--ink); }
 
 .nav-icon { width: 20px; height: 20px; flex: 0 0 20px; }
+
+/* Keep every navigation action reachable on short screens and at high display scaling. */
+.sidebar { overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; }
+.sidebar > * { flex-shrink: 0; }
+@media (max-height: 760px) {
+  .sidebar { padding-top: 20px; padding-bottom: 20px; }
+  .nav-title { margin-top: 28px; }
+  .sidebar-note { padding-top: 16px; margin: auto 8px 20px; }
+  .sidebar-note .leaf { margin-bottom: 8px; }
+}

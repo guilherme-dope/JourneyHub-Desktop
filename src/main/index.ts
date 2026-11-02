@@ -5,7 +5,7 @@ import { PreferenceStore } from './preferences';
 
 import { mkdirSync, appendFileSync, existsSync } from 'node:fs';
 
-import { app, BrowserWindow, dialog, ipcMain, session } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, screen, session } from 'electron';
 
 import { join, basename, resolve } from 'node:path';
 
@@ -108,7 +108,8 @@ else {
 
     session.defaultSession.setPermissionCheckHandler(() => false);
 
-    window = new BrowserWindow({ show: !process.argv.includes('--background'), width: 1280, height: 880, minWidth: 960, minHeight: 680, title: 'JourneyHub', icon: join(__dirname, '../assets/icon.png'), backgroundColor: '#f4f5f1', autoHideMenuBar: true,
+    const available = screen.getPrimaryDisplay().workAreaSize;
+    window = new BrowserWindow({ show: !process.argv.includes('--background'), width: Math.min(1280, available.width), height: Math.min(880, available.height), minWidth: Math.min(960, available.width), minHeight: Math.min(480, available.height), title: 'JourneyHub', icon: join(__dirname, '../assets/icon.png'), backgroundColor: '#f4f5f1', autoHideMenuBar: true,
 
       webPreferences: { preload: join(__dirname, '../preload/index.cjs'), nodeIntegration: false, contextIsolation: true, sandbox: true, webSecurity: true, devTools: !app.isPackaged } });
 

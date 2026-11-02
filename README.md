@@ -8,7 +8,7 @@
 
 Windows x64 · Versão 0.4.3 · Português e inglês
 
-[Baixar o instalador](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/tag/v0.4.3) · [Instalação](#instalacao) · [Requisitos funcionais](#requisitos) · [Arquitetura](#arquitetura)
+[Baixar o instalador](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/latest) · [Instalação](#instalacao) · [Requisitos funcionais](#requisitos) · [Arquitetura](#arquitetura)
 
 </div>
 
@@ -28,7 +28,7 @@ O objetivo é permitir que a pessoa registre sua jornada mesmo sem internet, rec
 | Acesso ao download | Download público pelo GitHub Releases |
 | Ambiente de desenvolvimento | Node.js e ferramentas de compilação são necessários apenas para desenvolver a partir do código-fonte |
 
-1. Abra a [release 0.4.3](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/tag/v0.4.3). Na seção **Assets**, baixe o instalador com extensão **.exe**. O arquivo **SHA256SUMS.txt** contém o resumo para conferência de integridade.
+1. Abra a [release 0.4.3](https://github.com/guilherme-dope/JourneyHub-Desktop/releases/latest). Na seção **Assets**, baixe o instalador com extensão **.exe**. O arquivo **SHA256SUMS.txt** contém o resumo para conferência de integridade.
 2. Execute o instalador e conclua a instalação para seu usuário do Windows. O pacote desta versão está sem assinatura digital e o Windows pode exibir um aviso de editor desconhecido.
 3. Abra **JourneyHub** pelo menu Iniciar. Em uma instalação nova, o armazenamento local é preparado automaticamente.
 4. Em **Minha jornada**, clique em **Iniciar jornada**. Ao fazer uma pausa, informe o motivo. Use **Registrar retorno** quando voltar e **Encerrar jornada** ao terminar o trabalho.
